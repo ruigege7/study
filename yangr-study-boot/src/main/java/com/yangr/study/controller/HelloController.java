@@ -26,6 +26,7 @@ public class HelloController {
     public String sayHello(@PathVariable("word") String word, HttpServletRequest request) {
         stringRedisTemplate.opsForValue().set("hello", "world");
         HttpSession httpSession = request.getSession();
+
         System.out.println(stringRedisTemplate.opsForValue().get("hello"));
         return "hello " + word + "!";
     }
